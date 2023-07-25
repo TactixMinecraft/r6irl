@@ -40,6 +40,7 @@ select {
   appearance: none;
   background-color: #f0f0f0;
   border: 1px solid #ddd;
+  color: #333;
 }
 
 .arrow-nav {
@@ -59,10 +60,11 @@ select {
   background-color: #ddd;
   border-radius: 50%;
   cursor: pointer;
+  color: #333;
 }
 
 .arrow:hover {
-  background-color: #ccc;
+  background-color: #bbb;
 }
 
 #prevOperator:before {
@@ -93,14 +95,18 @@ select {
   height: 100%;
   background-color: #555;
   border-radius: 4px;
+  width: 0;
+  transition: width 0.3s;
 }
 
 #operatorIndicator {
   /* Customize operator indicator color if needed */
+  background-color: #007BFF; /* Blue */
 }
 
 #attachmentIndicator {
   /* Customize attachment indicator color if needed */
+  background-color: #FFC107; /* Yellow */
 }
 
 #operatorInfo {
