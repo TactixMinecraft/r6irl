@@ -10,7 +10,7 @@ h1 {
 
 #operatorSelection, #attachmentSelection {
   display: inline-block;
-  width: 200px;
+  width: 300px;
   margin: 20px;
 }
 
@@ -18,6 +18,20 @@ select {
   width: 100%;
   padding: 5px;
   margin-top: 5px;
+}
+
+.arrow-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+}
+
+.arrow-nav i {
+  cursor: pointer;
 }
 
 #operatorInfo {
