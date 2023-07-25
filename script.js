@@ -64,32 +64,35 @@ document.addEventListener("DOMContentLoaded", () => {
   populateOperators();
   populateAttachments();
 
+  const operatorsDropdown = document.getElementById("operators");
+  const attachmentsDropdown = document.getElementById("attachments");
+
   // Operator navigation with arrow icons
   document.getElementById("prevOperator").addEventListener("click", () => {
     currentOperatorIndex = (currentOperatorIndex - 1 + operators.length) % operators.length;
-    document.getElementById("operators").value = operators[currentOperatorIndex].name;
+    operatorsDropdown.value = operators[currentOperatorIndex].name;
     displayOperatorInfo(currentOperatorIndex);
   });
 
   document.getElementById("nextOperator").addEventListener("click", () => {
     currentOperatorIndex = (currentOperatorIndex + 1) % operators.length;
-    document.getElementById("operators").value = operators[currentOperatorIndex].name;
+    operatorsDropdown.value = operators[currentOperatorIndex].name;
     displayOperatorInfo(currentOperatorIndex);
   });
 
   // Attachment navigation with arrow icons
   document.getElementById("prevAttachment").addEventListener("click", () => {
     currentAttachmentIndex = (currentAttachmentIndex - 1 + attachments.length) % attachments.length;
-    document.getElementById("attachments").value = attachments[currentAttachmentIndex];
+    attachmentsDropdown.value = attachments[currentAttachmentIndex];
   });
 
   document.getElementById("nextAttachment").addEventListener("click", () => {
     currentAttachmentIndex = (currentAttachmentIndex + 1) % attachments.length;
-    document.getElementById("attachments").value = attachments[currentAttachmentIndex];
+    attachmentsDropdown.value = attachments[currentAttachmentIndex];
   });
 
   // Display operator info when an operator is selected from the dropdown
-  document.getElementById("operators").addEventListener("change", (event) => {
+  operatorsDropdown.addEventListener("change", (event) => {
     currentOperatorIndex = operators.findIndex((operator) => operator.name === event.target.value);
     displayOperatorInfo(currentOperatorIndex);
   });
