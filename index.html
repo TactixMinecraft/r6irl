@@ -5,24 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rainbow Six Siege Operator Selection</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <h1>Rainbow Six Siege Operator Selection</h1>
-  
+
   <div id="operatorSelection">
     <h2>Choose an Operator</h2>
-    <select id="operators">
-      <option value="none" disabled selected>Select an Operator</option>
-      <!-- Add operator options here later -->
-    </select>
+    <div class="arrow-nav">
+      <i class="fas fa-chevron-left" id="prevOperator"></i>
+      <select id="operators">
+        <option value="none" disabled selected>Select an Operator</option>
+        <!-- Add operator options here later -->
+      </select>
+      <i class="fas fa-chevron-right" id="nextOperator"></i>
+    </div>
   </div>
 
   <div id="attachmentSelection">
     <h2>Choose an Attachment</h2>
-    <select id="attachments">
-      <option value="none" disabled selected>Select an Attachment</option>
-      <!-- Add attachment options here later -->
-    </select>
+    <div class="arrow-nav">
+      <i class="fas fa-chevron-left" id="prevAttachment"></i>
+      <select id="attachments">
+        <option value="none" disabled selected>Select an Attachment</option>
+        <!-- Add attachment options here later -->
+      </select>
+      <i class="fas fa-chevron-right" id="nextAttachment"></i>
+    </div>
   </div>
 
   <div id="operatorInfo">
