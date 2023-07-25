@@ -1,65 +1,43 @@
-// Sample operator data (you can replace this with actual data later)
-const operators = [
-  { name: "Operator 1", ability: "Ability 1", gun: "Gun 1" },
-  { name: "Operator 2", ability: "Ability 2", gun: "Gun 2" },
-  // Add more operators here
-];
-
-const attachments = [
-  "Attachment 1",
-  "Attachment 2",
-  // Add more attachments here
-];
-
-// Function to populate the operator dropdown
-function populateOperators() {
-  const operatorsDropdown = document.getElementById("operators");
-
-  operators.forEach((operator) => {
-    const option = document.createElement("option");
-    option.value = operator.name;
-    option.textContent = operator.name;
-    operatorsDropdown.appendChild(option);
-  });
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px;
 }
 
-// Function to populate the attachment dropdown
-function populateAttachments() {
-  const attachmentsDropdown = document.getElementById("attachments");
-
-  attachments.forEach((attachment) => {
-    const option = document.createElement("option");
-    option.value = attachment;
-    option.textContent = attachment;
-    attachmentsDropdown.appendChild(option);
-  });
+h1 {
+  color: #007BFF;
 }
 
-// Function to display operator information
-function displayOperatorInfo(operatorName) {
-  const operatorInfoDiv = document.getElementById("operatorInfo");
-
-  // Find the selected operator based on its name
-  const selectedOperator = operators.find((operator) => operator.name === operatorName);
-
-  // Create the operator information content
-  const operatorInfoContent = `
-    <h2>${selectedOperator.name}</h2>
-    <p><strong>Ability:</strong> ${selectedOperator.ability}</p>
-    <p><strong>Gun:</strong> ${selectedOperator.gun}</p>
-  `;
-
-  // Update the operatorInfoDiv with the new content
-  operatorInfoDiv.innerHTML = operatorInfoContent;
+#operatorSelection, #attachmentSelection {
+  display: inline-block;
+  width: 300px;
+  margin: 20px;
 }
 
-// Event listeners for operator and attachment selection
-document.addEventListener("DOMContentLoaded", () => {
-  populateOperators();
-  populateAttachments();
+select {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+}
 
-  document.getElementById("operators").addEventListener("change", (event) => {
-    const selectedOperator = event.target.value;
-    displayOperatorInfo(selectedOperator);
-  });
-});
+.arrow-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+}
+
+.arrow-nav i {
+  cursor: pointer;
+}
+
+#operatorInfo {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #007BFF;
+  border-radius: 5px;
+}
