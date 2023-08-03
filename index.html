@@ -1,50 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rainbow Six Siege Operator Selection</title>
-  <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Rainbow Six Siege Operator Selection</h1>
+    <div class="container">
+        <div id="operatorSection" class="info">
+            <div id="operatorInfo"></div>
+            <button id="prevOperatorButton">Previous Operator</button>
+            <button id="nextOperatorButton">Next Operator</button>
+        </div>
 
-    <div class="selector">
-      <h2>Choose an Operator</h2>
-      <div class="arrow-nav">
-        <span class="arrow" id="prevOperator">&lsaquo;</span>
-        <select id="operators">
-          <option value="none" disabled selected>Select an Operator</option>
-          <!-- Add operator options here later -->
-        </select>
-        <span class="arrow" id="nextOperator">&rsaquo;</span>
-      </div>
-      <div class="progress">
-        <div class="indicator" id="operatorIndicator"></div>
-      </div>
+        <div id="weaponSection" class="info">
+            <div id="weaponInfo"></div>
+            <button id="prevWeaponButton">Previous Weapon</button>
+            <button id="nextWeaponButton">Next Weapon</button>
+        </div>
+
+        <div id="attachments" class="info"></div>
+        
+        <button id="resetButton" class="reset-button">Reset</button>
     </div>
-
-    <div class="selector">
-      <h2>Choose an Attachment</h2>
-      <div class="arrow-nav">
-        <span class="arrow" id="prevAttachment">&lsaquo;</span>
-        <select id="attachments">
-          <option value="none" disabled selected>Select an Attachment</option>
-          <!-- Add attachment options here later -->
-        </select>
-        <span class="arrow" id="nextAttachment">&rsaquo;</span>
-      </div>
-      <div class="progress">
-        <div class="indicator" id="attachmentIndicator"></div>
-      </div>
-    </div>
-
-    <div id="operatorInfo">
-      <!-- Operator information will be displayed here later -->
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
