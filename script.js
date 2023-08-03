@@ -1,122 +1,112 @@
-body {
-    background-color: #121212;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// Operators and weapons data
+var operators = [
+    {name: 'Flash', role: 'Defense'},
+    {name: 'Ring', role: 'Attacker'},
+    {name: 'Alarm', role: 'Defense'}
+];
+
+var weapons = [
+    {name: 'Retaliator', type: 'Assault Rifle', attachments: {sight: ['Medium', 'Sniper', 'Bullet', 'Night vision', 'Handle'], barrel: ['Tactical', 'Short', 'Long', 'Handle', 'Stand'], stock: ['Tactical', 'Long', 'Utility']}},
+    {name: 'Recon MKlll', type: 'SMG', attachments: {sight: ['Medium', 'Sniper', 'Bullet', 'Night vision', 'Handle'], barrel: ['Tactical', 'Short', 'Long', 'Handle', 'Stand'], stock: ['Tactical', 'Long', 'Utility']}},
+    {name: 'Strongarm', type: 'Pistol', attachments: {sight: ['Medium', 'Sniper', 'Bullet', 'Night vision', 'Handle'], barrel: ['Tactical', 'Short', 'Long', 'Handle', 'Stand'], stock: ['Tactical', 'Long', 'Utility']}}
+];
+
+// Initialize
+var currentOperatorIndex = 0;
+var currentWeaponIndex = 0;
+
+var operatorSection = document.getElementById('operatorSection');
+var weaponSection = document.getElementById('weaponSection');
+var attachmentsSection = document.getElementById('attachments');
+
+var prevOperatorButton = document.getElementById('prevOperatorButton');
+var nextOperatorButton = document.getElementById('nextOperatorButton');
+var prevWeaponButton = document.getElementById('prevWeaponButton');
+var nextWeaponButton = document.getElementById('nextWeaponButton');
+var resetButton = document.getElementById('resetButton');
+
+// Functions to show the current operator and weapon
+function showOperator() {
+    var operatorInfo = document.getElementById('operatorInfo');
+    var operator = operators[currentOperatorIndex];
+
+    operatorInfo.innerHTML = `
+        <h2>${operator.name}</h2>
+        <p>${operator.role}</p>
+    `;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 50px;
-    animation: fadeIn 2s;
+function showWeapon() {
+    var weaponInfo = document.getElementById('weaponInfo');
+    var weapon = weapons[currentWeaponIndex];
+
+    weaponInfo.innerHTML = `
+        <h2>${weapon.name}</h2>
+        <p>${weapon.type}</p>
+    `;
 }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
+function showAttachments() {
+    var attachments = weapons[currentWeaponIndex].attachments;
+    var attachmentsHTML = '';
 
-.info {
-    border: 1px solid #444;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 20px;
-    width: 60%;
-    text-align: center;
-    background-color: #202020;
-    transition: background-color 0.5s;
-}
-
-.info h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.info p {
-    font-size: 1.2em;
-}
-
-button {
-    background-color: #1abc9c;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-button:active {
-    transform: scale(0.95);
-}
-
-button:hover {
-    background-color: #16a085;
-}
-
-.attachments div {
-    margin-bottom: 15px;
-}
-
-.attachments h3 {
-    margin-bottom: 5px;
-}
-
-.attachments select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #444;
-    background-color: #202020;
-    color: #fff;
-}
-
-.reset-button {
-    background-color: #e74c3c;
-}
-
-.reset-button:hover {
-    background-color: #c0392b;
-}
-
-@media only screen and (max-width: 600px) {
-    .container {
-        padding: 20px;
+    for (var attachmentType in attachments) {
+        attachmentsHTML += `
+            <div>
+                <h3>${attachmentType}</h3>
+                <select id="${attachmentType}">
+                    ${attachments[attachmentType].map(attachment => `<option>${attachment}</option>`).join('')}
+                </select>
+            </div>
+        `;
     }
 
-    .info {
-        width: 100%;
-    }
-
-    .info h2 {
-        font-size: 1.5em;
-    }
-
-    .info p {
-        font-size: 1em;
-    }
-
-    button {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-
-    .attachments h3 {
-        margin-bottom: 5px;
-    }
-
-    .attachments select {
-        padding: 5px;
-    }
+    attachmentsSection.innerHTML = attachmentsHTML;
 }
+
+// Event listeners for the buttons
+prevOperatorButton.addEventListener('click', function() {
+    currentOperatorIndex--;
+    if (currentOperatorIndex < 0) currentOperatorIndex = operators.length - 1;
+    showOperator();
+});
+
+nextOperatorButton.addEventListener('click', function() {
+    currentOperatorIndex++;
+    if (currentOperatorIndex >= operators.length) currentOperatorIndex = 0;
+    showOperator();
+});
+
+prevWeaponButton.addEventListener('click', function() {
+    currentWeaponIndex--;
+    if (currentWeaponIndex < 0) currentWeaponIndex = weapons.length - 1;
+    showWeapon();
+    showAttachments(); // Update attachments when weapon changes
+});
+
+nextWeaponButton.addEventListener('click', function() {
+    currentWeaponIndex++;
+    if (currentWeaponIndex >= weapons.length) currentWeaponIndex = 0;
+    showWeapon();
+    showAttachments(); // Update attachments when weapon changes
+});
+
+resetButton.addEventListener('click', function() {
+    // Reset the current operator and weapon indices
+    currentOperatorIndex = 0;
+    currentWeaponIndex = 0;
+
+    // Show the operator and weapon sections
+    operatorSection.style.display = 'block';
+    weaponSection.style.display = 'block';
+
+    // Reset the data in the operator and weapon sections
+    showOperator();
+    showWeapon();
+    showAttachments(); // Always show the attachments
+});
+
+// Display the first operator, weapon, and attachments when the page loads
+showOperator();
+showWeapon();
+showAttachments();
