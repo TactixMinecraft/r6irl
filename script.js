@@ -2,6 +2,7 @@
 var operators = [
     {name: 'Flash', role: 'Defense'},
     {name: 'Ring', role: 'Attacker'},
+    {name: 'Ghost', role: 'Attacker'}
     {name: 'Alarm', role: 'Defense'}
 ];
 
