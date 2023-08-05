@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div id="app">
-        <div id="operatorSection">
+    <div class="container">
+        <div id="operatorSection" class="info">
+            <h2></h2>
+            <p></p>
             <button id="prevOperatorButton">Previous Operator</button>
-            <div id="operatorInfo"></div>
             <button id="nextOperatorButton">Next Operator</button>
         </div>
-        <div id="weaponSection">
+        <div id="weaponSection" class="info">
+            <h2></h2>
+            <p></p>
             <button id="prevWeaponButton">Previous Weapon</button>
-            <div id="weaponInfo"></div>
             <button id="nextWeaponButton">Next Weapon</button>
         </div>
-        <div id="attachments"></div>
-        <button id="resetButton">Reset</button>
+        <div id="attachments" class="info">
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
