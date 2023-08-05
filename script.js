@@ -2,14 +2,14 @@
 var operators = [
     {name: 'Flash', role: 'Defense'},
     {name: 'Ring', role: 'Attacker'},
+    {name: 'Alarm', role: 'Defense'},
     {name: 'Ghost', role: 'Attacker'}
-    {name: 'Alarm', role: 'Defense'}
 ];
 
 var weapons = [
-    {name: 'Retaliator', type: 'Assault Rifle', attachments: {sight: ['Medium', 'Sniper', 'Bullet', 'Night vision', 'Handle'], barrel: ['Tactical', 'Short', 'Long', 'Handle', 'Stand'], stock: ['Tactical', 'Long', 'Utility']}},
-    {name: 'Recon MKlll', type: 'SMG', attachments: {sight: ['Medium', 'Sniper', 'Bullet', 'Night vision', 'Handle'], barrel: ['Tactical', 'Short', 'Long', 'Handle', 'Stand'], stock: ['Tactical', 'Long', 'Utility']}},
-    {name: 'Strongarm', type: 'Pistol', attachments: {sight: ['Medium', 'Sniper', 'Bullet', 'Night vision', 'Handle'], barrel: ['Tactical', 'Short', 'Long', 'Handle', 'Stand'], stock: ['Tactical', 'Long', 'Utility']}}
+    {name: 'Retaliator', type: 'Rifle', attachments: {sight: ['Medium', 'Sniper', 'Bullet', 'Night Vision', 'Handle'], barrel: ['Tactical', 'Short', 'Long', 'Handle', 'Stand'], stock: ['Tactical', 'Long', 'Utility']}},
+    {name: 'Recon MKlll', type: 'SMG', attachments: {sight: ['Medium', 'Sniper', 'Bullet', 'Night Vision', 'Handle'], barrel: ['Tactical', 'Short', 'Long', 'Handle', 'Stand'], stock: ['Tactical', 'Long', 'Utility']}},
+    {name: 'Strongarm', type: 'Handgun', attachments: {sight: ['Medium', 'Sniper', 'Bullet', 'Night Vision', 'Handle'], barrel: ['Tactical', 'Short', 'Long', 'Handle', 'Stand'], stock: ['Tactical', 'Long', 'Utility']}}
 ];
 
 // Initialize
@@ -104,10 +104,10 @@ resetButton.addEventListener('click', function() {
     // Reset the data in the operator and weapon sections
     showOperator();
     showWeapon();
-    showAttachments(); // Always show the attachments
+    showAttachments();
 });
 
-// Display the first operator, weapon, and attachments when the page loads
+// Display the first operator and weapon when the page loads
 showOperator();
 showWeapon();
 showAttachments();
